@@ -15,8 +15,13 @@ import java.util.List;
 
 @RestController
 public class PdfController {
+
+    private ICityService cityService;
+
     @Autowired
-    ICityService cityService;
+    private void setCityService(ICityService cityService) {
+        this.cityService = cityService;
+    }
 
     @RequestMapping(value = "/pdfreport", method = RequestMethod.GET, produces = MediaType.APPLICATION_PDF_VALUE)
     public ResponseEntity<InputStreamResource> citiesReport() {

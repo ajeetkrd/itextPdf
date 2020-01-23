@@ -10,15 +10,19 @@ import java.util.List;
 @Service
 public class CityService implements ICityService {
 
-    @Autowired
+
     private CityRepository repository;
+
+    @Autowired
+    private void setRepository(CityRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public List<City> findAll() {
 
-        List<City> cities = (List<City>) repository.findAll();
 
-        return cities;
+        return (List<City>) repository.findAll();
     }
 
     @Override
