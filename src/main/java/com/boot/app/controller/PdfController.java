@@ -26,6 +26,7 @@ public class PdfController {
     @RequestMapping(value = "/pdfreport", method = RequestMethod.GET, produces = MediaType.APPLICATION_PDF_VALUE)
     public ResponseEntity<InputStreamResource> citiesReport() {
 
+
         List<City> cities = cityService.findAll();
 
         ByteArrayInputStream bis = GeneratePdfReport.citiesReport(cities);
